@@ -186,3 +186,1767 @@ Use `ActiveRecord.default_timezone` instead.
 DEPRECATION WARNING: ActiveRecord::Base.default_timezone is deprecated and will be removed in Rails 7.1.
 Use `ActiveRecord.default_timezone` instead.
  (called from <top (required)> at /home/preethag/Lab11-ControllerTDD_Emails_Uploads/from_s22/lab11-preethagopinath/University-starter-code/config/environment.rb:5)
+DEPRECATION WARNING: ActiveRecord::Base.default_timezone is deprecated and will be removed in Rails 7.1.
+Use `ActiveRecord.default_timezone` instead.
+ (called from <top (required)> at /home/aissaoui/Downloads/lab8-BandBlitizAuthentication&TDD-Ahmed (1)/lab8-preethagopinath-main/UniversityStarter-ControllerTDD/config/environment.rb:5)
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateDepartments (20210223173445)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "departments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" varchar, "active" boolean)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210223173445"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFaculties (20210223173525)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "department_id" integer, "rank" varchar, "active" boolean, CONSTRAINT "fk_rails_a63204634d"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210223173525"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCourses (20210223173653)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" integer, "number" integer, "units" integer, "active" boolean)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210223173653"]]
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateAssignments (20210223174018)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "faculty_id" integer, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_a45849935b"
+FOREIGN KEY ("faculty_id")
+  REFERENCES "faculties" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210223174018"]]
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-01-30 16:03:56.990023"], ["updated_at", "2024-01-30 16:03:56.990023"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: ActiveRecord::Base.default_timezone is deprecated and will be removed in Rails 7.1.
+Use `ActiveRecord.default_timezone` instead.
+ (called from <top (required)> at /home/aissaoui/Downloads/lab8-BandBlitizAuthentication&TDD-Ahmed (1)/lab8-preethagopinath-main/UniversityStarter-ControllerTDD/config/environment.rb:5)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+Migrating to CreateDepartments (20210223173445)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "departments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" varchar, "active" boolean)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210223173445"]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+Migrating to CreateFaculties (20210223173525)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "department_id" integer, "rank" varchar, "active" boolean, CONSTRAINT "fk_rails_a63204634d"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210223173525"]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+Migrating to CreateCourses (20210223173653)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" integer, "number" integer, "units" integer, "active" boolean)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210223173653"]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+Migrating to CreateAssignments (20210223174018)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "faculty_id" integer, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_a45849935b"
+FOREIGN KEY ("faculty_id")
+  REFERENCES "faculties" ("id")
+)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210223174018"]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-01-30 16:05:14.852145"], ["updated_at", "2024-01-30 16:05:14.852145"]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "faculty_id" integer)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "courses"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" integer, "number" integer, "units" integer, "active" boolean)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "departments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "departments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" varchar, "active" boolean)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "faculties"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "department_id" integer, "rank" varchar, "active" boolean)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aassignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_faculty_id" ON "aassignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_course_id" ON "aassignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aassignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "assignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (1.9ms)[0m  [1m[35mDROP TABLE "assignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "assignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "aassignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aassignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aassignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_faculty_id" ON "aassignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_course_id" ON "aassignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aassignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "assignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (1.6ms)[0m  [1m[35mDROP TABLE "assignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_a45849935b"
+FOREIGN KEY ("faculty_id")
+  REFERENCES "faculties" ("id")
+)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "assignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "aassignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aassignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "afaculties" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "department_id" integer DEFAULT NULL, "rank" varchar DEFAULT NULL, "active" boolean DEFAULT NULL)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_afaculties_on_department_id" ON "afaculties" ("department_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "afaculties" ("id","first_name","last_name","department_id","rank","active")
+                     SELECT "id","first_name","last_name","department_id","rank","active" FROM "faculties"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE "faculties"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "department_id" integer DEFAULT NULL, "rank" varchar DEFAULT NULL, "active" boolean DEFAULT NULL, CONSTRAINT "fk_rails_a63204634d"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "faculties" ("id","first_name","last_name","department_id","rank","active")
+                     SELECT "id","first_name","last_name","department_id","rank","active" FROM "afaculties"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "afaculties"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (4.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210223174018)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (4.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210223173445),
+(20210223173525),
+(20210223173653);
+
+[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-01-30 16:05:14.997285"], ["updated_at", "2024-01-30 16:05:14.997285"]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Update (0.8ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2024-01-30 16:05:15.006132"], ["key", "environment"]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "85d922b9eb184dbe9cdd17d8eecc21c1d98cef63"], ["created_at", "2024-01-30 16:05:15.014753"], ["updated_at", "2024-01-30 16:05:15.014753"]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/departments.rb:5:in `create_departments'
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "67"], ["LIMIT", 1]]
+  ↳ test/sets/departments.rb:5:in `create_departments'
+  [1m[36mDepartment Create (1.2ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "Information Systems"], ["unit_prefix", "67"], ["active", 1]]
+  ↳ test/sets/departments.rb:5:in `create_departments'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/departments.rb:5:in `create_departments'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/departments.rb:6:in `create_departments'
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "15"], ["LIMIT", 1]]
+  ↳ test/sets/departments.rb:6:in `create_departments'
+  [1m[36mDepartment Create (1.1ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "Computer Science"], ["unit_prefix", "15"], ["active", 1]]
+  ↳ test/sets/departments.rb:6:in `create_departments'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/departments.rb:6:in `create_departments'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/departments.rb:7:in `create_departments'
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "70"], ["LIMIT", 1]]
+  ↳ test/sets/departments.rb:7:in `create_departments'
+  [1m[36mDepartment Create (0.2ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "Business"], ["unit_prefix", "70"], ["active", 1]]
+  ↳ test/sets/departments.rb:7:in `create_departments'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/departments.rb:7:in `create_departments'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/departments.rb:8:in `create_departments'
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "76"], ["LIMIT", 1]]
+  ↳ test/sets/departments.rb:8:in `create_departments'
+  [1m[36mDepartment Create (0.2ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "English"], ["unit_prefix", "76"], ["active", 1]]
+  ↳ test/sets/departments.rb:8:in `create_departments'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/departments.rb:8:in `create_departments'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/departments.rb:9:in `create_departments'
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "03"], ["LIMIT", 1]]
+  ↳ test/sets/departments.rb:9:in `create_departments'
+  [1m[36mDepartment Create (0.2ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "Sociology"], ["unit_prefix", "03"], ["active", 0]]
+  ↳ test/sets/departments.rb:9:in `create_departments'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/departments.rb:9:in `create_departments'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/faculties.rb:5:in `create_faculties'
+  [1m[36mFaculty Create (0.2ms)[0m  [1m[32mINSERT INTO "faculties" ("first_name", "last_name", "department_id", "rank", "active") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Jeria"], ["last_name", "Quesenberry"], ["department_id", 1], ["rank", "Professor"], ["active", 1]]
+  ↳ test/sets/faculties.rb:5:in `create_faculties'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/faculties.rb:5:in `create_faculties'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/faculties.rb:6:in `create_faculties'
+  [1m[36mFaculty Create (0.2ms)[0m  [1m[32mINSERT INTO "faculties" ("first_name", "last_name", "department_id", "rank", "active") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "David"], ["last_name", "Kosbie"], ["department_id", 2], ["rank", "Professor"], ["active", 1]]
+  ↳ test/sets/faculties.rb:6:in `create_faculties'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/faculties.rb:6:in `create_faculties'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/faculties.rb:7:in `create_faculties'
+  [1m[36mFaculty Create (0.2ms)[0m  [1m[32mINSERT INTO "faculties" ("first_name", "last_name", "department_id", "rank", "active") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "David"], ["last_name", "Kaufer"], ["department_id", 4], ["rank", "Professor"], ["active", 0]]
+  ↳ test/sets/faculties.rb:7:in `create_faculties'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/faculties.rb:7:in `create_faculties'
+DEPRECATION WARNING: ActiveRecord::Base.default_timezone is deprecated and will be removed in Rails 7.1.
+Use `ActiveRecord.default_timezone` instead.
+ (called from <top (required)> at /home/aissaoui/Downloads/lab8-BandBlitizAuthentication&TDD-Ahmed (1)/lab8-preethagopinath-main/UniversityStarter-ControllerTDD/config/environment.rb:5)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+Migrating to CreateDepartments (20210223173445)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "departments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" varchar, "active" boolean)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210223173445"]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+Migrating to CreateFaculties (20210223173525)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "department_id" integer, "rank" varchar, "active" boolean, CONSTRAINT "fk_rails_a63204634d"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210223173525"]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+Migrating to CreateCourses (20210223173653)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" integer, "number" integer, "units" integer, "active" boolean)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210223173653"]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+Migrating to CreateAssignments (20210223174018)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "faculty_id" integer, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_a45849935b"
+FOREIGN KEY ("faculty_id")
+  REFERENCES "faculties" ("id")
+)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210223174018"]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-01-30 16:05:18.621976"], ["updated_at", "2024-01-30 16:05:18.621976"]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "faculty_id" integer)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "courses"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" integer, "number" integer, "units" integer, "active" boolean)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "departments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "departments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" varchar, "active" boolean)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "faculties"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "department_id" integer, "rank" varchar, "active" boolean)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aassignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_faculty_id" ON "aassignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_course_id" ON "aassignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aassignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "assignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "assignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "assignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "aassignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aassignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aassignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_faculty_id" ON "aassignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_course_id" ON "aassignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aassignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "assignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "assignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_a45849935b"
+FOREIGN KEY ("faculty_id")
+  REFERENCES "faculties" ("id")
+)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "assignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "aassignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aassignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "afaculties" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "department_id" integer DEFAULT NULL, "rank" varchar DEFAULT NULL, "active" boolean DEFAULT NULL)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_afaculties_on_department_id" ON "afaculties" ("department_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "afaculties" ("id","first_name","last_name","department_id","rank","active")
+                     SELECT "id","first_name","last_name","department_id","rank","active" FROM "faculties"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "faculties"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "department_id" integer DEFAULT NULL, "rank" varchar DEFAULT NULL, "active" boolean DEFAULT NULL, CONSTRAINT "fk_rails_a63204634d"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "faculties" ("id","first_name","last_name","department_id","rank","active")
+                     SELECT "id","first_name","last_name","department_id","rank","active" FROM "afaculties"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "afaculties"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210223174018)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210223173445),
+(20210223173525),
+(20210223173653);
+
+[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-01-30 16:05:18.736741"], ["updated_at", "2024-01-30 16:05:18.736741"]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2024-01-30 16:05:18.743389"], ["key", "environment"]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (11.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "85d922b9eb184dbe9cdd17d8eecc21c1d98cef63"], ["created_at", "2024-01-30 16:05:18.758919"], ["updated_at", "2024-01-30 16:05:18.758919"]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/departments.rb:5:in `create_departments'
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "67"], ["LIMIT", 1]]
+  ↳ test/sets/departments.rb:5:in `create_departments'
+  [1m[36mDepartment Create (0.3ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "Information Systems"], ["unit_prefix", "67"], ["active", 1]]
+  ↳ test/sets/departments.rb:5:in `create_departments'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/departments.rb:5:in `create_departments'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/departments.rb:6:in `create_departments'
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "15"], ["LIMIT", 1]]
+  ↳ test/sets/departments.rb:6:in `create_departments'
+  [1m[36mDepartment Create (0.3ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "Computer Science"], ["unit_prefix", "15"], ["active", 1]]
+  ↳ test/sets/departments.rb:6:in `create_departments'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/departments.rb:6:in `create_departments'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/departments.rb:7:in `create_departments'
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "70"], ["LIMIT", 1]]
+  ↳ test/sets/departments.rb:7:in `create_departments'
+  [1m[36mDepartment Create (0.3ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "Business"], ["unit_prefix", "70"], ["active", 1]]
+  ↳ test/sets/departments.rb:7:in `create_departments'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/departments.rb:7:in `create_departments'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/departments.rb:8:in `create_departments'
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "76"], ["LIMIT", 1]]
+  ↳ test/sets/departments.rb:8:in `create_departments'
+  [1m[36mDepartment Create (0.3ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "English"], ["unit_prefix", "76"], ["active", 1]]
+  ↳ test/sets/departments.rb:8:in `create_departments'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/departments.rb:8:in `create_departments'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/departments.rb:9:in `create_departments'
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "03"], ["LIMIT", 1]]
+  ↳ test/sets/departments.rb:9:in `create_departments'
+  [1m[36mDepartment Create (0.3ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "Sociology"], ["unit_prefix", "03"], ["active", 0]]
+  ↳ test/sets/departments.rb:9:in `create_departments'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/departments.rb:9:in `create_departments'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/faculties.rb:5:in `create_faculties'
+  [1m[36mFaculty Create (0.3ms)[0m  [1m[32mINSERT INTO "faculties" ("first_name", "last_name", "department_id", "rank", "active") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Jeria"], ["last_name", "Quesenberry"], ["department_id", 1], ["rank", "Professor"], ["active", 1]]
+  ↳ test/sets/faculties.rb:5:in `create_faculties'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/faculties.rb:5:in `create_faculties'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/faculties.rb:6:in `create_faculties'
+  [1m[36mFaculty Create (0.3ms)[0m  [1m[32mINSERT INTO "faculties" ("first_name", "last_name", "department_id", "rank", "active") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "David"], ["last_name", "Kosbie"], ["department_id", 2], ["rank", "Professor"], ["active", 1]]
+  ↳ test/sets/faculties.rb:6:in `create_faculties'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/faculties.rb:6:in `create_faculties'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/faculties.rb:7:in `create_faculties'
+  [1m[36mFaculty Create (0.3ms)[0m  [1m[32mINSERT INTO "faculties" ("first_name", "last_name", "department_id", "rank", "active") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "David"], ["last_name", "Kaufer"], ["department_id", 4], ["rank", "Professor"], ["active", 0]]
+  ↳ test/sets/faculties.rb:7:in `create_faculties'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/faculties.rb:7:in `create_faculties'
+DEPRECATION WARNING: ActiveRecord::Base.default_timezone is deprecated and will be removed in Rails 7.1.
+Use `ActiveRecord.default_timezone` instead.
+ (called from <top (required)> at /home/aissaoui/Downloads/lab8-BandBlitizAuthentication&TDD-Ahmed (1)/lab8-preethagopinath-main/UniversityStarter-ControllerTDD/config/environment.rb:5)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments"[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "faculty_id" integer)[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "courses"[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" integer, "number" integer, "units" integer, "active" boolean)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "departments"[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "departments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" varchar, "active" boolean)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "faculties"[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "department_id" integer, "rank" varchar, "active" boolean)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aassignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_faculty_id" ON "aassignments" ("faculty_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_course_id" ON "aassignments" ("course_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aassignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "assignments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "assignments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "assignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "aassignments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aassignments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aassignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_faculty_id" ON "aassignments" ("faculty_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_course_id" ON "aassignments" ("course_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aassignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "assignments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "assignments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_a45849935b"
+FOREIGN KEY ("faculty_id")
+  REFERENCES "faculties" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "assignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "aassignments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aassignments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (9.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "afaculties" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "department_id" integer DEFAULT NULL, "rank" varchar DEFAULT NULL, "active" boolean DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_afaculties_on_department_id" ON "afaculties" ("department_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "afaculties" ("id","first_name","last_name","department_id","rank","active")
+                     SELECT "id","first_name","last_name","department_id","rank","active" FROM "faculties"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "faculties"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "department_id" integer DEFAULT NULL, "rank" varchar DEFAULT NULL, "active" boolean DEFAULT NULL, CONSTRAINT "fk_rails_a63204634d"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "faculties" ("id","first_name","last_name","department_id","rank","active")
+                     SELECT "id","first_name","last_name","department_id","rank","active" FROM "afaculties"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "afaculties"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210223174018)[0m
+  [1m[35m (2.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210223173445),
+(20210223173525),
+(20210223173653);
+
+[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-01-30 16:10:11.578466"], ["updated_at", "2024-01-30 16:10:11.578466"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "85d922b9eb184dbe9cdd17d8eecc21c1d98cef63"], ["created_at", "2024-01-30 16:10:11.587305"], ["updated_at", "2024-01-30 16:10:11.587305"]]
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments"[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "faculty_id" integer)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "courses"[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" integer, "number" integer, "units" integer, "active" boolean)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "departments"[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "departments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" varchar, "active" boolean)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "faculties"[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "department_id" integer, "rank" varchar, "active" boolean)[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aassignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_faculty_id" ON "aassignments" ("faculty_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_course_id" ON "aassignments" ("course_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aassignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "assignments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "assignments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "assignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "aassignments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aassignments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aassignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_faculty_id" ON "aassignments" ("faculty_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_course_id" ON "aassignments" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aassignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "assignments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "assignments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_a45849935b"
+FOREIGN KEY ("faculty_id")
+  REFERENCES "faculties" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "assignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "aassignments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aassignments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "afaculties" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "department_id" integer DEFAULT NULL, "rank" varchar DEFAULT NULL, "active" boolean DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_afaculties_on_department_id" ON "afaculties" ("department_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "afaculties" ("id","first_name","last_name","department_id","rank","active")
+                     SELECT "id","first_name","last_name","department_id","rank","active" FROM "faculties"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "faculties"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "department_id" integer DEFAULT NULL, "rank" varchar DEFAULT NULL, "active" boolean DEFAULT NULL, CONSTRAINT "fk_rails_a63204634d"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "faculties" ("id","first_name","last_name","department_id","rank","active")
+                     SELECT "id","first_name","last_name","department_id","rank","active" FROM "afaculties"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "afaculties"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210223174018)[0m
+  [1m[35m (2.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210223173445),
+(20210223173525),
+(20210223173653);
+
+[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-01-30 16:10:11.702270"], ["updated_at", "2024-01-30 16:10:11.702270"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2024-01-30 16:10:11.708802"], ["key", "environment"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "85d922b9eb184dbe9cdd17d8eecc21c1d98cef63"], ["created_at", "2024-01-30 16:10:11.715047"], ["updated_at", "2024-01-30 16:10:11.715047"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: ActiveRecord::Base.default_timezone is deprecated and will be removed in Rails 7.1.
+Use `ActiveRecord.default_timezone` instead.
+ (called from <top (required)> at /home/aissaoui/Downloads/lab8-BandBlitizAuthentication&TDD-Ahmed (1)/lab8-preethagopinath-main/UniversityStarter-ControllerTDD/config/environment.rb:5)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+Migrating to CreateDepartments (20210223173445)
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "departments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" varchar, "active" boolean)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210223173445"]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+Migrating to CreateFaculties (20210223173525)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "department_id" integer, "rank" varchar, "active" boolean, CONSTRAINT "fk_rails_a63204634d"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210223173525"]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+Migrating to CreateCourses (20210223173653)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" integer, "number" integer, "units" integer, "active" boolean)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210223173653"]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+Migrating to CreateAssignments (20210223174018)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "faculty_id" integer, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_a45849935b"
+FOREIGN KEY ("faculty_id")
+  REFERENCES "faculties" ("id")
+)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210223174018"]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-01-30 16:13:23.899052"], ["updated_at", "2024-01-30 16:13:23.899052"]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "faculty_id" integer)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "courses"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" integer, "number" integer, "units" integer, "active" boolean)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "departments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "departments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" varchar, "active" boolean)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "faculties"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "department_id" integer, "rank" varchar, "active" boolean)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aassignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_faculty_id" ON "aassignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_course_id" ON "aassignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aassignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "assignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "assignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "assignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "aassignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aassignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aassignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_faculty_id" ON "aassignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_course_id" ON "aassignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aassignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "assignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "assignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_a45849935b"
+FOREIGN KEY ("faculty_id")
+  REFERENCES "faculties" ("id")
+)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "assignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "aassignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aassignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "afaculties" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "department_id" integer DEFAULT NULL, "rank" varchar DEFAULT NULL, "active" boolean DEFAULT NULL)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_afaculties_on_department_id" ON "afaculties" ("department_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "afaculties" ("id","first_name","last_name","department_id","rank","active")
+                     SELECT "id","first_name","last_name","department_id","rank","active" FROM "faculties"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "faculties"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "department_id" integer DEFAULT NULL, "rank" varchar DEFAULT NULL, "active" boolean DEFAULT NULL, CONSTRAINT "fk_rails_a63204634d"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "faculties" ("id","first_name","last_name","department_id","rank","active")
+                     SELECT "id","first_name","last_name","department_id","rank","active" FROM "afaculties"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "afaculties"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (9.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210223174018)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210223173445),
+(20210223173525),
+(20210223173653);
+
+[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-01-30 16:13:24.042593"], ["updated_at", "2024-01-30 16:13:24.042593"]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2024-01-30 16:13:24.049157"], ["key", "environment"]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "85d922b9eb184dbe9cdd17d8eecc21c1d98cef63"], ["created_at", "2024-01-30 16:13:24.055324"], ["updated_at", "2024-01-30 16:13:24.055324"]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/departments.rb:5:in `create_departments'
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "67"], ["LIMIT", 1]]
+  ↳ test/sets/departments.rb:5:in `create_departments'
+  [1m[36mDepartment Create (0.2ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "Information Systems"], ["unit_prefix", "67"], ["active", 1]]
+  ↳ test/sets/departments.rb:5:in `create_departments'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/departments.rb:5:in `create_departments'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/departments.rb:6:in `create_departments'
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "15"], ["LIMIT", 1]]
+  ↳ test/sets/departments.rb:6:in `create_departments'
+  [1m[36mDepartment Create (0.2ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "Computer Science"], ["unit_prefix", "15"], ["active", 1]]
+  ↳ test/sets/departments.rb:6:in `create_departments'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/departments.rb:6:in `create_departments'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/departments.rb:7:in `create_departments'
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "70"], ["LIMIT", 1]]
+  ↳ test/sets/departments.rb:7:in `create_departments'
+  [1m[36mDepartment Create (0.2ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "Business"], ["unit_prefix", "70"], ["active", 1]]
+  ↳ test/sets/departments.rb:7:in `create_departments'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/departments.rb:7:in `create_departments'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/departments.rb:8:in `create_departments'
+  [1m[36mDepartment Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "76"], ["LIMIT", 1]]
+  ↳ test/sets/departments.rb:8:in `create_departments'
+  [1m[36mDepartment Create (0.2ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "English"], ["unit_prefix", "76"], ["active", 1]]
+  ↳ test/sets/departments.rb:8:in `create_departments'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/departments.rb:8:in `create_departments'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/departments.rb:9:in `create_departments'
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "03"], ["LIMIT", 1]]
+  ↳ test/sets/departments.rb:9:in `create_departments'
+  [1m[36mDepartment Create (0.2ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "Sociology"], ["unit_prefix", "03"], ["active", 0]]
+  ↳ test/sets/departments.rb:9:in `create_departments'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/departments.rb:9:in `create_departments'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/faculties.rb:5:in `create_faculties'
+  [1m[36mFaculty Create (0.3ms)[0m  [1m[32mINSERT INTO "faculties" ("first_name", "last_name", "department_id", "rank", "active") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Jeria"], ["last_name", "Quesenberry"], ["department_id", 1], ["rank", "Professor"], ["active", 1]]
+  ↳ test/sets/faculties.rb:5:in `create_faculties'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/faculties.rb:5:in `create_faculties'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/faculties.rb:6:in `create_faculties'
+  [1m[36mFaculty Create (0.2ms)[0m  [1m[32mINSERT INTO "faculties" ("first_name", "last_name", "department_id", "rank", "active") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "David"], ["last_name", "Kosbie"], ["department_id", 2], ["rank", "Professor"], ["active", 1]]
+  ↳ test/sets/faculties.rb:6:in `create_faculties'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/faculties.rb:6:in `create_faculties'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/faculties.rb:7:in `create_faculties'
+  [1m[36mFaculty Create (0.3ms)[0m  [1m[32mINSERT INTO "faculties" ("first_name", "last_name", "department_id", "rank", "active") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "David"], ["last_name", "Kaufer"], ["department_id", 4], ["rank", "Professor"], ["active", 0]]
+  ↳ test/sets/faculties.rb:7:in `create_faculties'
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/faculties.rb:7:in `create_faculties'
+DEPRECATION WARNING: ActiveRecord::Base.default_timezone is deprecated and will be removed in Rails 7.1.
+Use `ActiveRecord.default_timezone` instead.
+ (called from <top (required)> at /home/aissaoui/Downloads/lab8-BandBlitizAuthentication&TDD-Ahmed (1)/lab8-preethagopinath-main/UniversityStarter-ControllerTDD/config/environment.rb:5)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments"[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "faculty_id" integer)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "courses"[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" integer, "number" integer, "units" integer, "active" boolean)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "departments"[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "departments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" varchar, "active" boolean)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "faculties"[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "department_id" integer, "rank" varchar, "active" boolean)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aassignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_faculty_id" ON "aassignments" ("faculty_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_course_id" ON "aassignments" ("course_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aassignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "assignments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "assignments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "assignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "aassignments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aassignments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aassignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_faculty_id" ON "aassignments" ("faculty_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_course_id" ON "aassignments" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aassignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "assignments"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "assignments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_a45849935b"
+FOREIGN KEY ("faculty_id")
+  REFERENCES "faculties" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "assignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "aassignments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aassignments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "afaculties" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "department_id" integer DEFAULT NULL, "rank" varchar DEFAULT NULL, "active" boolean DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_afaculties_on_department_id" ON "afaculties" ("department_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "afaculties" ("id","first_name","last_name","department_id","rank","active")
+                     SELECT "id","first_name","last_name","department_id","rank","active" FROM "faculties"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "faculties"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "department_id" integer DEFAULT NULL, "rank" varchar DEFAULT NULL, "active" boolean DEFAULT NULL, CONSTRAINT "fk_rails_a63204634d"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "faculties" ("id","first_name","last_name","department_id","rank","active")
+                     SELECT "id","first_name","last_name","department_id","rank","active" FROM "afaculties"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "afaculties"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210223174018)[0m
+  [1m[35m (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210223173445),
+(20210223173525),
+(20210223173653);
+
+[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-01-30 16:13:51.581461"], ["updated_at", "2024-01-30 16:13:51.581461"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "85d922b9eb184dbe9cdd17d8eecc21c1d98cef63"], ["created_at", "2024-01-30 16:13:51.590699"], ["updated_at", "2024-01-30 16:13:51.590699"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments"[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "faculty_id" integer)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "courses"[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" integer, "number" integer, "units" integer, "active" boolean)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "departments"[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "departments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" varchar, "active" boolean)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "faculties"[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "department_id" integer, "rank" varchar, "active" boolean)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aassignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_faculty_id" ON "aassignments" ("faculty_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_course_id" ON "aassignments" ("course_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aassignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "assignments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "assignments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "assignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "aassignments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aassignments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aassignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_faculty_id" ON "aassignments" ("faculty_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_course_id" ON "aassignments" ("course_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aassignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "assignments"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "assignments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_a45849935b"
+FOREIGN KEY ("faculty_id")
+  REFERENCES "faculties" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "assignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "aassignments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aassignments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "afaculties" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "department_id" integer DEFAULT NULL, "rank" varchar DEFAULT NULL, "active" boolean DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_afaculties_on_department_id" ON "afaculties" ("department_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "afaculties" ("id","first_name","last_name","department_id","rank","active")
+                     SELECT "id","first_name","last_name","department_id","rank","active" FROM "faculties"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "faculties"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "department_id" integer DEFAULT NULL, "rank" varchar DEFAULT NULL, "active" boolean DEFAULT NULL, CONSTRAINT "fk_rails_a63204634d"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "faculties" ("id","first_name","last_name","department_id","rank","active")
+                     SELECT "id","first_name","last_name","department_id","rank","active" FROM "afaculties"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "afaculties"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210223174018)[0m
+  [1m[35m (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210223173445),
+(20210223173525),
+(20210223173653);
+
+[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-01-30 16:13:51.696565"], ["updated_at", "2024-01-30 16:13:51.696565"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2024-01-30 16:13:51.703100"], ["key", "environment"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "85d922b9eb184dbe9cdd17d8eecc21c1d98cef63"], ["created_at", "2024-01-30 16:13:51.709542"], ["updated_at", "2024-01-30 16:13:51.709542"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: ActiveRecord::Base.default_timezone is deprecated and will be removed in Rails 7.1.
+Use `ActiveRecord.default_timezone` instead.
+ (called from <top (required)> at /home/aissaoui/Downloads/lab8-BandBlitizAuthentication&TDD-Ahmed (1)/lab8-preethagopinath-main/UniversityStarter-ControllerTDD/config/environment.rb:5)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:7:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+Migrating to CreateDepartments (20210223173445)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "departments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" varchar, "active" boolean)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210223173445"]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+Migrating to CreateFaculties (20210223173525)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "department_id" integer, "rank" varchar, "active" boolean, CONSTRAINT "fk_rails_a63204634d"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210223173525"]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+Migrating to CreateCourses (20210223173653)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" integer, "number" integer, "units" integer, "active" boolean)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210223173653"]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+Migrating to CreateAssignments (20210223174018)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "faculty_id" integer, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_a45849935b"
+FOREIGN KEY ("faculty_id")
+  REFERENCES "faculties" ("id")
+)[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210223174018"]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-01-30 16:13:56.560226"], ["updated_at", "2024-01-30 16:13:56.560226"]]
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:10:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "assignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "faculty_id" integer)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "courses"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" integer, "number" integer, "units" integer, "active" boolean)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "departments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "departments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit_prefix" varchar, "active" boolean)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "faculties"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "department_id" integer, "rank" varchar, "active" boolean)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aassignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_faculty_id" ON "aassignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_course_id" ON "aassignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aassignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "assignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "assignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "assignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "aassignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aassignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aassignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_faculty_id" ON "aassignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aassignments_on_course_id" ON "aassignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aassignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "assignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "assignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "assignments" ("id" integer NOT NULL PRIMARY KEY, "course_id" integer DEFAULT NULL, "faculty_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_2194c084a6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_a45849935b"
+FOREIGN KEY ("faculty_id")
+  REFERENCES "faculties" ("id")
+)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_course_id" ON "assignments" ("course_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_assignments_on_faculty_id" ON "assignments" ("faculty_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "assignments" ("id","course_id","faculty_id")
+                     SELECT "id","course_id","faculty_id" FROM "aassignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aassignments"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "afaculties" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "department_id" integer DEFAULT NULL, "rank" varchar DEFAULT NULL, "active" boolean DEFAULT NULL)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_afaculties_on_department_id" ON "afaculties" ("department_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "afaculties" ("id","first_name","last_name","department_id","rank","active")
+                     SELECT "id","first_name","last_name","department_id","rank","active" FROM "faculties"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "faculties"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "faculties" ("id" integer NOT NULL PRIMARY KEY, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "department_id" integer DEFAULT NULL, "rank" varchar DEFAULT NULL, "active" boolean DEFAULT NULL, CONSTRAINT "fk_rails_a63204634d"
+FOREIGN KEY ("department_id")
+  REFERENCES "departments" ("id")
+)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_faculties_on_department_id" ON "faculties" ("department_id")[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "faculties" ("id","first_name","last_name","department_id","rank","active")
+                     SELECT "id","first_name","last_name","department_id","rank","active" FROM "afaculties"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "afaculties"[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (2.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20210223174018)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20210223173445),
+(20210223173525),
+(20210223173653);
+
+[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-01-30 16:13:56.683508"], ["updated_at", "2024-01-30 16:13:56.683508"]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2024-01-30 16:13:56.690115"], ["key", "environment"]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "85d922b9eb184dbe9cdd17d8eecc21c1d98cef63"], ["created_at", "2024-01-30 16:13:56.696577"], ["updated_at", "2024-01-30 16:13:56.696577"]]
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ lib/tasks/contexts.rake:12:in `block (2 levels) in <top (required)>'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/departments.rb:5:in `create_departments'
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "67"], ["LIMIT", 1]]
+  ↳ test/sets/departments.rb:5:in `create_departments'
+  [1m[36mDepartment Create (0.2ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "Information Systems"], ["unit_prefix", "67"], ["active", 1]]
+  ↳ test/sets/departments.rb:5:in `create_departments'
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/departments.rb:5:in `create_departments'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/departments.rb:6:in `create_departments'
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "15"], ["LIMIT", 1]]
+  ↳ test/sets/departments.rb:6:in `create_departments'
+  [1m[36mDepartment Create (0.3ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "Computer Science"], ["unit_prefix", "15"], ["active", 1]]
+  ↳ test/sets/departments.rb:6:in `create_departments'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/departments.rb:6:in `create_departments'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/departments.rb:7:in `create_departments'
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "70"], ["LIMIT", 1]]
+  ↳ test/sets/departments.rb:7:in `create_departments'
+  [1m[36mDepartment Create (0.3ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "Business"], ["unit_prefix", "70"], ["active", 1]]
+  ↳ test/sets/departments.rb:7:in `create_departments'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/departments.rb:7:in `create_departments'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/departments.rb:8:in `create_departments'
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "76"], ["LIMIT", 1]]
+  ↳ test/sets/departments.rb:8:in `create_departments'
+  [1m[36mDepartment Create (0.3ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "English"], ["unit_prefix", "76"], ["active", 1]]
+  ↳ test/sets/departments.rb:8:in `create_departments'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/departments.rb:8:in `create_departments'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/departments.rb:9:in `create_departments'
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "03"], ["LIMIT", 1]]
+  ↳ test/sets/departments.rb:9:in `create_departments'
+  [1m[36mDepartment Create (0.2ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "Sociology"], ["unit_prefix", "03"], ["active", 0]]
+  ↳ test/sets/departments.rb:9:in `create_departments'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/departments.rb:9:in `create_departments'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/faculties.rb:5:in `create_faculties'
+  [1m[36mFaculty Create (0.4ms)[0m  [1m[32mINSERT INTO "faculties" ("first_name", "last_name", "department_id", "rank", "active") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "Jeria"], ["last_name", "Quesenberry"], ["department_id", 1], ["rank", "Professor"], ["active", 1]]
+  ↳ test/sets/faculties.rb:5:in `create_faculties'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/faculties.rb:5:in `create_faculties'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/faculties.rb:6:in `create_faculties'
+  [1m[36mFaculty Create (0.3ms)[0m  [1m[32mINSERT INTO "faculties" ("first_name", "last_name", "department_id", "rank", "active") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "David"], ["last_name", "Kosbie"], ["department_id", 2], ["rank", "Professor"], ["active", 1]]
+  ↳ test/sets/faculties.rb:6:in `create_faculties'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/faculties.rb:6:in `create_faculties'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ test/sets/faculties.rb:7:in `create_faculties'
+  [1m[36mFaculty Create (0.3ms)[0m  [1m[32mINSERT INTO "faculties" ("first_name", "last_name", "department_id", "rank", "active") VALUES (?, ?, ?, ?, ?)[0m  [["first_name", "David"], ["last_name", "Kaufer"], ["department_id", 4], ["rank", "Professor"], ["active", 0]]
+  ↳ test/sets/faculties.rb:7:in `create_faculties'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ test/sets/faculties.rb:7:in `create_faculties'
+DEPRECATION WARNING: ActiveRecord::Base.default_timezone is deprecated and will be removed in Rails 7.1.
+Use `ActiveRecord.default_timezone` instead.
+ (called from <top (required)> at /home/aissaoui/Downloads/lab8-BandBlitizAuthentication&TDD-Ahmed (1)/lab8-preethagopinath-main/UniversityStarter-ControllerTDD/config/environment.rb:5)
