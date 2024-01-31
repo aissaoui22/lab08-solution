@@ -714,3 +714,73 @@ Processing by DepartmentsController#edit as HTML
   Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1286)
 Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.1ms | Allocations: 1736)
   [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------
+DepartmentsControllerTest: test_should_get_index
+------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "67"], ["LIMIT", 1]]
+  [1m[36mDepartment Create (0.3ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "Information Systems"], ["unit_prefix", "67"], ["active", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/departments" for 127.0.0.1 at 2024-01-31 09:40:13 +0300
+Processing by DepartmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering departments/index.html.erb within layouts/application
+  Rendered departments/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 343)
+  Rendered layout layouts/application.html.erb (Duration: 1510.4ms | Allocations: 41625)
+Completed 200 OK in 1523ms (Views: 1514.1ms | ActiveRecord: 0.0ms | Allocations: 45560)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+DepartmentsControllerTest: test_should_get_new
+----------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "67"], ["LIMIT", 1]]
+  [1m[36mDepartment Create (0.3ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "Information Systems"], ["unit_prefix", "67"], ["active", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/departments/new" for 127.0.0.1 at 2024-01-31 09:40:15 +0300
+Processing by DepartmentsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering departments/new.html.erb within layouts/application
+  Rendered departments/new.html.erb within layouts/application (Duration: 0.3ms | Allocations: 107)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1392)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 1851)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+DepartmentsControllerTest: test_should_get_show
+-----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "67"], ["LIMIT", 1]]
+  [1m[36mDepartment Create (0.2ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "Information Systems"], ["unit_prefix", "67"], ["active", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/departments/1" for 127.0.0.1 at 2024-01-31 09:40:15 +0300
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering departments/show.html.erb within layouts/application
+  Rendered departments/show.html.erb within layouts/application (Duration: 0.2ms | Allocations: 79)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1286)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.1ms | Allocations: 1986)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+DepartmentsControllerTest: test_should_get_edit
+-----------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mDepartment Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "departments" WHERE "departments"."unit_prefix" = ? LIMIT ?[0m  [["unit_prefix", "67"], ["LIMIT", 1]]
+  [1m[36mDepartment Create (0.5ms)[0m  [1m[32mINSERT INTO "departments" ("name", "unit_prefix", "active") VALUES (?, ?, ?)[0m  [["name", "Information Systems"], ["unit_prefix", "67"], ["active", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/departments/1/edit" for 127.0.0.1 at 2024-01-31 09:40:15 +0300
+Processing by DepartmentsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDepartment Load (0.1ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering departments/edit.html.erb within layouts/application
+  Rendered departments/edit.html.erb within layouts/application (Duration: 0.3ms | Allocations: 79)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1286)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.1ms | Allocations: 1721)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mrollback transaction[0m
